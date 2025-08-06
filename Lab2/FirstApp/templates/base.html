@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Home Work 2{% endblock %}</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #525252ff;
+            direction: rtl;
+        }
+
+        /* ✅ Navbar معدل */
+        header {
+            background-color: #1e2a38;
+            padding: 15px 30px;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center; /* يجعل التبويبات في المنتصف */
+            align-items: center;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 6px 10px;
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #00d1b2;
+            border-bottom: 2px solid #00d1b2;
+        }
+
+        /* ✅ محتوى الصفحة */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: #1e2a38;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.7;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ✅ Navbar احترافي -->
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'Hello' %}">الرئيسية</a></li>
+                <li><a href="{% url 'about' %}">من نحن</a></li>
+                <li><a href="{% url 'M' %}">الخدمات </a></li>
+                <li><a href="{% url 'new' %}">الكورسات </a></li>
+                <li><a href>تسجيل الدخول</a></li>
+                <li><a href>اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ✅ المحتوى -->
+    <div class="container">
+        {% block content %}
+        <!-- محتوى الصفحات الفرعية يظهر هنا -->
+        {% endblock %}
+    </div>
+
+</body>
+</html>
